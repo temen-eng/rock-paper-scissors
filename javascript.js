@@ -72,28 +72,31 @@ Your game will play 5 rounds. You will write a function named playGame that call
         If you already know about loops, you can use them. If not, don’t worry! Loops will be covered in the next lesson.
 */
 
-console.log("Hello World");
-
-/*
-Pseudocode
-
-*/
-
 // Get a random number from Math.random.
 // If that number is between 0 and 0.33, return rock.
 // If that number is between 0.33 and 0.66, return paper.
 // If that number is between 0.66 and 1, return scissor.
-function getComputerChoice(choice) {
+
+function getComputerChoice() {
   let randomNumber = Math.random();
+
   if (randomNumber < 0.33) {
     return "rock";
   } else if (randomNumber < 0.66) { 
     return "paper";
   } else {
-    return "scissor";
+    return "scissors";
   }
-
-  return choice;
 }
+console.log(getComputerChoice())
 
-console.log(getComputerChoice());
+function getHumanChoice() {
+    return prompt("What's your input?");
+}
+console.log(getHumanChoice());
+
+// Create two new variables named humanScore and computerScore in the global scope.
+// Initialize those variables with the value of 0.
+
+let humanScore = 0;
+let computerScore = 0;
