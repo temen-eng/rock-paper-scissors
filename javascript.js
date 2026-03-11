@@ -88,15 +88,49 @@ function getComputerChoice() {
     return "scissors";
   }
 }
-console.log(getComputerChoice())
 
 function getHumanChoice() {
     return prompt("What's your input?");
 }
-console.log(getHumanChoice());
 
 // Create two new variables named humanScore and computerScore in the global scope.
 // Initialize those variables with the value of 0.
 
 let humanScore = 0;
 let computerScore = 0;
+
+function playRound(humanChoice, computerChoice) {
+    humanChoice = humanChoice.toLowerCase();
+    if (humanChoice == computerChoice) {
+        return console.log("Tie!");
+    } else if (humanChoice == "rock" && computerChoice == "scissors") {
+        humanScore = humanScore + 1;
+        return console.log("Rock wins!");
+    } else if (humanChoice == "paper" && computerChoice == "rock") {
+        humanScore = humanScore + 1;
+        return console.log("Paper wins!");
+    } else if (humanChoice == "scissors" && computerChoice == "paper") {
+        humanScore = humanScore + 1;
+        return console.log("Scissors wins!");
+    } else if (humanChoice == "paper" && computerChoice == "scissors") {
+        computerScore = computerScore + 1;
+        return console.log("Scissors wins!");
+    } else if (humanChoice == "scissors" && computerChoice == "rock") {
+        computerScore = computerScore + 1;
+        return console.log("Rock wins!");
+    } else if (humanChoice == "rock" && computerChoice == "paper") {
+        computerScore = computerScore + 1;
+        return console.log("Rock wins!");
+    }
+}
+
+const humanSelection = getHumanChoice();
+console.log("Human selection: " + humanSelection);
+
+const computerSelection = getComputerChoice();
+console.log("Computer selection: " + computerSelection);
+
+playRound(humanSelection, computerSelection);
+
+console.log("Humans score: " + humanScore);
+console.log("Computer score: " + computerScore);
